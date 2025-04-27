@@ -10,31 +10,32 @@ import FamilyControls
 
 @main
 struct DidYouDevApp: App {
-    
     @Environment(\.self) var enviroment
-    @State private var manager: ScreenTimeAuthorizationManager = .init()
+    
+    @State private var authManager: ScreenTimeAuthorizationManager = .init()
+    
     @State private var isPresented = false
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(authManager: authManager)
                 .onAppear {
                     do {
-                        try manager.checkAuthorization
+                        try authManager.checkAuthorization
                     } catch {
                         isPresented = true
                     }
                 }
-                .onChange(of: manager.status) {
+                .onChange(of: authManager.status) {
                     do {
-                        try manager.checkAuthorization
+                        try authManager.checkAuthorization
                         isPresented = false
                     } catch {
                         isPresented = true
                     }
                 }
                 .fullScreenCover(isPresented: $isPresented) {
-                    AuthorizationView(manager: manager)
+                    AuthorizationView(manager: authManager)
                 }
         }
     }

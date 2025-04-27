@@ -42,11 +42,10 @@ final class ScreenTimeAuthorizationManager {
           }
           .store(in: &cancellables)
         
-        NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
-            .sink { [weak self] _ in
-                try? self?.authorize()
-            }
-            .store(in: &cancellables)
+        ForegroundTracker.shared.addExecutionItem { [weak self] in
+            try? self?.authorize()
+        }
+        
     }
 
     func authorize() throws(ScreenTimeAuthorizationManager.Error) {

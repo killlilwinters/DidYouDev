@@ -25,7 +25,7 @@ struct AuthorizationView: View {
         ) {
             Button("Authorize") {
                 Task {
-                    try? await manager.authorize()
+                    try? manager.authorize()
                 }
             }
             .buttonStyle(.borderedProminent)

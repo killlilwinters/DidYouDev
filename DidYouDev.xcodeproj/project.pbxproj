@@ -6,14 +6,86 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E93370392DBE94D10028805A /* TrackerExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E933702E2DBE94D10028805A /* TrackerExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E93370412DBE97FA0028805A /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93370302DBE94D10028805A /* DeviceActivity.framework */; };
+		E93370422DBE97FB0028805A /* DeviceActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E93370302DBE94D10028805A /* DeviceActivity.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E93370372DBE94D10028805A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9336FFA2DBCD0350028805A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E933702D2DBE94D10028805A;
+			remoteInfo = TrackerExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E933703E2DBE94D10028805A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E93370392DBE94D10028805A /* TrackerExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E93370432DBE97FB0028805A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E93370422DBE97FB0028805A /* DeviceActivity.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E93370022DBCD0360028805A /* DidYouDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DidYouDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E933702E2DBE94D10028805A /* TrackerExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TrackerExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93370302DBE94D10028805A /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E933703A2DBE94D10028805A /* Exceptions for "TrackerExtension" folder in "TrackerExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E933702D2DBE94D10028805A /* TrackerExtension */;
+		};
+		E93370402DBE964D0028805A /* Exceptions for "DidYouDev" folder in "TrackerExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ScreenTime/AppListStorage.swift,
+				Services/SharedConstants.swift,
+			);
+			target = E933702D2DBE94D10028805A /* TrackerExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E93370042DBCD0360028805A /* DidYouDev */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E93370402DBE964D0028805A /* Exceptions for "DidYouDev" folder in "TrackerExtension" target */,
+			);
 			path = DidYouDev;
+			sourceTree = "<group>";
+		};
+		E93370322DBE94D10028805A /* TrackerExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E933703A2DBE94D10028805A /* Exceptions for "TrackerExtension" folder in "TrackerExtension" target */,
+			);
+			path = TrackerExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +98,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E933702B2DBE94D10028805A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E93370412DBE97FA0028805A /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				E93370042DBCD0360028805A /* DidYouDev */,
+				E93370322DBE94D10028805A /* TrackerExtension */,
+				E933702F2DBE94D10028805A /* Frameworks */,
 				E93370032DBCD0360028805A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +123,17 @@
 			isa = PBXGroup;
 			children = (
 				E93370022DBCD0360028805A /* DidYouDev.app */,
+				E933702E2DBE94D10028805A /* TrackerExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E933702F2DBE94D10028805A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E93370302DBE94D10028805A /* DeviceActivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +146,12 @@
 				E9336FFE2DBCD0360028805A /* Sources */,
 				E9336FFF2DBCD0360028805A /* Frameworks */,
 				E93370002DBCD0360028805A /* Resources */,
+				E933703E2DBE94D10028805A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E93370382DBE94D10028805A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E93370042DBCD0360028805A /* DidYouDev */,
@@ -69,6 +162,29 @@
 			productName = DidYouDev;
 			productReference = E93370022DBCD0360028805A /* DidYouDev.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E933702D2DBE94D10028805A /* TrackerExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E933703B2DBE94D10028805A /* Build configuration list for PBXNativeTarget "TrackerExtension" */;
+			buildPhases = (
+				E933702A2DBE94D10028805A /* Sources */,
+				E933702B2DBE94D10028805A /* Frameworks */,
+				E933702C2DBE94D10028805A /* Resources */,
+				E93370432DBE97FB0028805A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E93370322DBE94D10028805A /* TrackerExtension */,
+			);
+			name = TrackerExtension;
+			packageProductDependencies = (
+			);
+			productName = TrackerExtension;
+			productReference = E933702E2DBE94D10028805A /* TrackerExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +197,9 @@
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					E93370012DBCD0360028805A = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					E933702D2DBE94D10028805A = {
 						CreatedOnToolsVersion = 16.3;
 					};
 				};
@@ -100,12 +219,20 @@
 			projectRoot = "";
 			targets = (
 				E93370012DBCD0360028805A /* DidYouDev */,
+				E933702D2DBE94D10028805A /* TrackerExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E93370002DBCD0360028805A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E933702C2DBE94D10028805A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +249,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E933702A2DBE94D10028805A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E93370382DBE94D10028805A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E933702D2DBE94D10028805A /* TrackerExtension */;
+			targetProxy = E93370372DBE94D10028805A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E933700C2DBCD0370028805A /* Debug */ = {
@@ -246,7 +388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DidYouDev/DidYouDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DidYouDev/App/DidYouDev.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XUYF93872P;
@@ -286,7 +428,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DidYouDev/DidYouDev.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DidYouDev/App/DidYouDevRelease.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XUYF93872P;
@@ -310,6 +453,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxwinters.DidYouDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -318,6 +462,71 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				XROS_DEPLOYMENT_TARGET = 2.4;
+			};
+			name = Release;
+		};
+		E933703C2DBE94D10028805A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TrackerExtension/TrackerExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XUYF93872P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrackerExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TrackerExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxwinters.DidYouDev.TrackerExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E933703D2DBE94D10028805A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TrackerExtension/TrackerExtensionRelease.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XUYF93872P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TrackerExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TrackerExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxwinters.DidYouDev.TrackerExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -338,6 +547,15 @@
 			buildConfigurations = (
 				E933700F2DBCD0370028805A /* Debug */,
 				E93370102DBCD0370028805A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E933703B2DBE94D10028805A /* Build configuration list for PBXNativeTarget "TrackerExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E933703C2DBE94D10028805A /* Debug */,
+				E933703D2DBE94D10028805A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
