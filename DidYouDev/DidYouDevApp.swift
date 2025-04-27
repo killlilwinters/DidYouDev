@@ -19,16 +19,18 @@ struct DidYouDevApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
-                    try? manager.authorize()
-                    if manager.requiresAuthorization {
+                    do {
+                        try manager.checkAuthorization
+                    } catch {
                         isPresented = true
                     }
                 }
                 .onChange(of: manager.status) {
-                    if manager.requiresAuthorization {
-                        isPresented = true
-                    } else {
+                    do {
+                        try manager.checkAuthorization
                         isPresented = false
+                    } catch {
+                        isPresented = true
                     }
                 }
                 .fullScreenCover(isPresented: $isPresented) {

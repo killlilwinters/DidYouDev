@@ -11,7 +11,7 @@ import Combine
 
 @Observable
 final class ScreenTimeAuthorizationManager {
-    enum ScreenTimeAuthorizationError: LocalizedError {
+    enum Error: LocalizedError {
         case notAuthorized, authorizationDenied
         
         var errorDescription: String? {
@@ -24,8 +24,12 @@ final class ScreenTimeAuthorizationManager {
     
     var status: AuthorizationStatus = .notDetermined
     
-    var requiresAuthorization: Bool {
-        status == .notDetermined || status == .denied
+    var checkAuthorization: Void {
+        get throws {
+            if status == .notDetermined || status == .denied {
+                throw ScreenTimeAuthorizationManager.Error.notAuthorized
+            }
+        }
     }
     
     private var cancellables: Set<AnyCancellable> = .init()
@@ -45,13 +49,13 @@ final class ScreenTimeAuthorizationManager {
             .store(in: &cancellables)
     }
 
-    func authorize() throws(ScreenTimeAuthorizationError) {
+    func authorize() throws(ScreenTimeAuthorizationManager.Error) {
         Task {
             do {
                 try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
             } catch {
                 status = .denied
-                throw ScreenTimeAuthorizationError.authorizationDenied
+                throw ScreenTimeAuthorizationManager.Error.authorizationDenied
             }
         }
         status = AuthorizationCenter.shared.authorizationStatus
