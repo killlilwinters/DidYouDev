@@ -19,11 +19,9 @@ struct DidYouDevApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
-                    Task {
-                        try? await manager.authorize()
-                        if manager.requiresAuthorization {
-                            isPresented = true
-                        }
+                    try? manager.authorize()
+                    if manager.requiresAuthorization {
+                        isPresented = true
                     }
                 }
                 .onChange(of: manager.status) {

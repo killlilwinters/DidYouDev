@@ -40,17 +40,19 @@ final class ScreenTimeAuthorizationManager {
         
         NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
             .sink { [weak self] _ in
-                Task { try? await self?.authorize() }
+                try? self?.authorize()
             }
             .store(in: &cancellables)
     }
 
-    func authorize() async throws(ScreenTimeAuthorizationError) {
-        do {
-            try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
-        } catch {
-            status = .denied
-            throw .authorizationDenied
+    func authorize() throws(ScreenTimeAuthorizationError) {
+        Task {
+            do {
+                try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
+            } catch {
+                status = .denied
+                throw ScreenTimeAuthorizationError.authorizationDenied
+            }
         }
         status = AuthorizationCenter.shared.authorizationStatus
     }
